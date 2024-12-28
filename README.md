@@ -26,9 +26,13 @@ Two models are employed for classification:
 
 ## Project Structure
 
-The project's code structure can be visualized as follows:
+    This graph illustrates the flow of data and the different components of the project's code. 
+    Data loading is performed first, followed by the training, validation, and testing of the two 
+    models (Xception and Custom CNN). The trained models are then integrated into the Streamlit app,
+    allowing users to upload images for prediction and visualization.
+    
 
-              +-----------------+
+              +-----------------+-----------------------------------+
                                 |   Data Loading  |
                                 +--------+--------+
                                          |
@@ -53,7 +57,6 @@ The project's code structure can be visualized as follows:
              +------------+------------+
 
 
-    This graph illustrates the flow of data and the different components of the project's code. Data loading is performed first, followed by the training, validation, and testing of the two models (Xception and Custom CNN). The trained models are then integrated into the Streamlit app, allowing users to upload images for prediction and visualization.
 
 Here's a brief description of the key files:
 
