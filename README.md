@@ -1,97 +1,169 @@
-# Brain Tumor MRI Classification
+# Brain Tumor MRI Classification with Deep Learning
 
-This project aims to classify brain tumors using MRI scans with deep learning models. It leverages two different approaches: transfer learning with the Xception model and a custom-built CNN.
+This project implements an advanced deep learning system for classifying brain tumors from MRI scans. It leverages two complementary approaches - transfer learning with the Xception architecture and a custom CNN model - to achieve high accuracy in tumor classification.
+
+## Overview
+
+The system can classify brain MRI scans into four categories:
+- Glioma
+- Meningioma  
+- No Tumor
+- Pituitary
+
+Key features:
+- Transfer learning using pre-trained Xception model
+- Custom CNN architecture optimized for MRI analysis
+- Interactive Streamlit web interface
+- Saliency map visualization for model interpretability
+- AI-generated explanations of model predictions
 
 ## Dataset
 
-The dataset used for this project is the Brain Tumor MRI Dataset from Kaggle:
+The project uses the Brain Tumor MRI Dataset from Kaggle:
+- **Source**: [Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
+- **Size**: Over 7,000 MRI images
+- **Classes**: 4 categories (glioma, meningioma, no tumor, pituitary)
+- **Format**: High quality .jpg images of brain MRI scans
 
-* **Dataset Link:** https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset
+## Model Architecture
 
-The dataset consists of MRI scans classified into four categories:
+### Transfer Learning Model (Xception)
+- Pre-trained Xception base model
+- Additional layers:
+  - Global Max Pooling
+  - Dropout (0.3)
+  - Dense layer (128 units, ReLU)
+  - Dropout (0.25)
+  - Output layer (4 units, Softmax)
 
-* Glioma
-* Meningioma
-* No Tumor
-* Pituitary
+### Custom CNN Model
+- Optimized convolutional architecture
+- Multiple conv-pool blocks
+- Batch normalization
+- Dropout regularization
+- Dense layers for classification
 
-## Models
+## Performance
 
-Two models are employed for classification:
+Both models achieve strong classification performance:
 
-1. **Transfer Learning with Xception:** A pre-trained Xception model is fine-tuned on the brain tumor dataset for classification. This approach utilizes the knowledge gained by the model on a large dataset (ImageNet) and adapts it for brain tumor classification.
+**Xception Model**:
+- Training Accuracy: 99.15%
+- Validation Accuracy: 94.58%
+- Test Accuracy: 96.89%
 
-2. **Custom CNN:** A custom-built Convolutional Neural Network (CNN) is designed and trained specifically for brain tumor classification. This model architecture is tailored to the characteristics of the MRI images and aims to achieve optimal performance.
+**Custom CNN**:
+- Training Accuracy: 97.05%
+- Validation Accuracy: 95.03% 
+- Test Accuracy: 95.65%
+
+## Web Interface
+
+The project includes an interactive Streamlit web application that allows users to:
+
+1. Upload brain MRI scans
+2. Choose between Xception and Custom CNN models
+3. Get real-time predictions with confidence scores
+4. View saliency maps highlighting regions of interest
+5. Read AI-generated explanations of model predictions
+
+### Interface Features
+- Clean, intuitive design
+- Real-time processing
+- Visualization of model attention via saliency maps
+- Confidence scores for all classes
+- Natural language explanations
+
+## Project Structure 🗂️
+
+```
+Brain_Tumor_AI/
+├── models/
+│   ├── xception_model.weights.h5
+│   └── cnn_model.weights.h5
+├── notebooks/
+│   └── brain_tumor.ipynb
+├── app/
+│   ├── app.py
+│   └── requirements.txt
+├── saliency_maps/
+└── README.md
+```
+
+## Installation & Usage 🚀
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/Brain_Tumor_AI.git
+cd Brain_Tumor_AI
+```
 
 
-## Project Structure
 
-    This graph illustrates the flow of data and the different components of the project's code. 
-    Data loading is performed first, followed by the training, validation, and testing of the two 
-    models (Xception and Custom CNN). The trained models are then integrated into the Streamlit app,
-    allowing users to upload images for prediction and visualization.
-    
+2. Run the Streamlit app:
+```bash
+streamlit run app/app.py
+```
 
-              +-----------------+-----------------------------------+
-                                |   Data Loading  |
-                                +--------+--------+
-                                         |
-                                         v
-                    +-----------------+-----------------+
-                    | Xception Model | Custom CNN Model |
-                    +--------+--------+--------+--------+
-                             |                 |
-                             v                 v
-               +------------+------------+------------+
-               |   Training | Validation |   Testing  |
-               +------------+------------+------------+
-                             |
-                             v
-                   +-----------------+
-                   | Streamlit App  |
-                   +--------+--------+
-                             |
-                             v
-             +------------+------------+
-             | Prediction | Explanation |
-             +------------+------------+
+4. Access the web interface at `http://localhost:8501`
+
+## Model Training 🧠
+
+To train the models:
+
+1. Download the dataset from Kaggle
+2. Open and run `brain_tumor.ipynb` in Google Colab or Jupyter
+3. Model weights will be saved to the `models/` directory
+
+## Technologies Used 💻
+
+- TensorFlow/Keras
+-Scikit-learn
+- Streamlit
+- OpenCV
+- NumPy
+- Pandas
+- Google Gemini AI (for explanations)
+- Plotly (for visualizations)
+
+## Results & Metrics 📊
+
+The project achieves exceptional performance in tumor classification:
+
+- High accuracy across all tumor types
+- Robust performance on unseen data
+- Real-time inference capabilities
+- Interpretable predictions with saliency maps
+
+Detailed metrics including precision, recall, and confusion matrices are available in the project notebook.
+
+## Future Improvements 🔮
+
+- [ ] Implement ensemble methods for improved accuracy
+- [ ] Add support for 3D MRI sequences
+- [ ] Enhance visualization capabilities
+- [ ] Deploy model to cloud platform
+- [ ] Add batch processing functionality
+- [ ] Improve explanation quality with medical context
+- [ ] Integrate additional pre-trained architectures
+
+## Contributing 🤝
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 
+## Contact 📧
 
-Here's a brief description of the key files:
+For questions or feedback, please open an issue or contact the maintainers.
 
-* **xception_model.weights.h5:** Contains the saved weights of the fine-tuned Xception model.
-* **cnn_model.weights.h5:** Contains the saved weights of the custom CNN model.
-* **app.py:** A Streamlit app that allows users to upload MRI images for prediction and visualization.
-* **saliency_maps:** A directory to store the generated saliency maps.
+---
 
-## Usage
-
-1. **Set up Environment:**
-2. **Run the Streamlit App:**
-3. **Upload Image:** Browse and select an MRI image for classification.
-
-4. **View Results:**  The app displays the predicted class along with class probabilities. 
-   * Saliency Map: The highlighted areas in the saliency map indicate regions the model focused on for prediction.
-   * Explanation: The AI-generated explanation offers potential reasons for the model's prediction.
-
-## Streamlit App
-
-The Streamlit app provides an interactive interface for users to:
-
-* Upload MRI images for prediction.
-* Select the desired model (Xception or Custom CNN).
-* View predicted tumor type with confidence scores.
-* Visualize saliency maps highlighting areas of focus for prediction.
-* Read an AI-generated explanation of the model's prediction.
-
-## Results
-
-The project achieves high accuracy on the brain tumor dataset. Detailed evaluation metrics, including accuracy, precision, recall, and the confusion matrix, are available in the project report.
-
-## Future Work
-
-* Exploring other deep learning architectures for improved performance.
-* Experimenting with hyperparameter optimization techniques.
-* Integrating model interpretability tools for better understanding predictions.
-* Deploying the app to the cloud for wider accessibility.
+<div align="center">
+Made with ❤️  by Sheick 
+</div>
