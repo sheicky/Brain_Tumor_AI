@@ -104,9 +104,6 @@ cd Brain_Tumor_AI
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
-
-# Install dependencies
-pip install -r requirements.txt
 ```
 
 ## 🚀 Usage
@@ -128,18 +125,6 @@ pip install -r requirements.txt
   - Region highlighting
 - **Analysis**: AI-generated medical explanations
 
-## 🛠️ Development
-
-```bash
-# Run tests
-python -m pytest tests/
-
-# Format code
-black .
-
-# Run linter
-flake8
-```
 
 ## 📈 Results & Metrics
 
