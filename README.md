@@ -12,6 +12,14 @@ An advanced deep learning system for automated brain tumor classification from M
 </div>
 
 ---
+![image](https://github.com/user-attachments/assets/2cee2a72-8b8d-4f2d-95c8-11eff38f95ff)
+![image](https://github.com/user-attachments/assets/7ae5c706-1188-46ef-891f-bd12230a3105)
+![image](https://github.com/user-attachments/assets/edbdb374-1bbd-45ea-baa0-b6e7df6c6369)
+
+
+
+
+
 
 ## 🌟 Key Features
 
