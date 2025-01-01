@@ -8,7 +8,6 @@
 
 An advanced deep learning system for automated brain tumor classification from MRI scans, achieving 96.89% accuracy.
 
-[Key Features](#key-features) • [Demo](#live-demo) • [Installation](#installation) • [Usage](#usage) • [Architecture](#architecture) • [Results](#results)
 
 </div>
 
