@@ -26,10 +26,6 @@ An advanced deep learning system for automated brain tumor classification from M
 - **AI-Powered Explanations**
   - Medical context generation
   - Region-specific analysis
-- **Production-Ready**
-  - RESTful API support
-  - Docker containerization
-  - Batch processing capability
 
 ## 🎯 Overview
 
